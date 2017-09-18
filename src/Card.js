@@ -48,6 +48,9 @@ function valueProp(props, propName, componentName) {
   return null;
 }
 
+/* eslint-disable max-len */
+// Patterns from here:
+// http://lea.verou.me/css3patterns/
 export const cardBacks = {
   argyle: {
     backgroundColor: '#6d695c',
@@ -55,7 +58,7 @@ export const cardBacks = {
     backgroundSize: '70px 120px'
   },
   arrows: {
-    background: ' linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px, linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px), linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px)',
+    background: 'linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px, linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px), linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px)',
     backgroundColor: '#e1ebbd',
     backgroundSize: '128px 128px'
   },
@@ -72,7 +75,7 @@ export const cardBacks = {
     backgroundPosition: '0 0, 55px 55px'
   },
   bricks: {
-    backgroundColor: ' silver',
+    backgroundColor: 'silver',
     backgroundImage: 'linear-gradient(335deg, #b00 23px, transparent 23px), linear-gradient(155deg, #d00 23px, transparent 23px), linear-gradient(335deg, #b00 23px, transparent 23px), linear-gradient(155deg, #d00 23px, transparent 23px)',
     backgroundSize: '58px 58px',
     backgroundPosition: '0px 2px, 4px 35px, 29px 31px, 34px 6px'
@@ -90,12 +93,12 @@ export const cardBacks = {
   checkerboard: {
     backgroundColor: '#eee',
     backgroundImage: 'linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black)',
-    backgroundSize: ' 60px 60px',
-    backgroundPosition: ' 0 0, 30px 30px'
+    backgroundSize: '60px 60px',
+    backgroundPosition: '0 0, 30px 30px'
   },
   chocolateWeave: {
     background: 'linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0), linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0), linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753',
-    backgroundSize: ' 25px 25px'
+    backgroundSize: '25px 25px'
   },
   cicadaStrips: {
     backgroundColor: '#026873',
@@ -113,12 +116,12 @@ export const cardBacks = {
     backgroundPosition: '54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px'
   },
   diagonalCheckerboard: {
-    backgroundColor: ' #eee',
+    backgroundColor: '#eee',
     backgroundImage: 'linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, black 75%, black)',
-    backgroundSize: ' 60px 60px'
+    backgroundSize: '60px 60px'
   },
   diagonalStripes: {
-    backgroundColor: ' gray',
+    backgroundColor: 'gray',
     backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px)'
   },
   halfRombes: {
@@ -132,12 +135,12 @@ export const cardBacks = {
   },
   honeyComb: {
     background: 'radial-gradient(circle farthest-side at 0% 50%,#fb1 23.5%,rgba(240,166,17,0) 0)21px 30px, radial-gradient(circle farthest-side at 0% 50%,#B71 24%,rgba(240,166,17,0) 0)19px 30px, linear-gradient(#fb1 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#fb1 0)0 0, linear-gradient(150deg,#fb1 24%,#B71 0,#B71 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#B71 0,#B71 76%,#fb1 0)0 0, linear-gradient(30deg,#fb1 24%,#B71 0,#B71 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#B71 0,#B71 76%,#fb1 0)0 0, linear-gradient(90deg,#B71 2%,#fb1 0,#fb1 98%,#B71 0%)0 0 #fb1',
-    backgroundSize: ' 40px 60px'
+    backgroundSize: '40px 60px'
   },
   horizontalStripes: {
-    backgroundColor: ' gray',
+    backgroundColor: 'gray',
     backgroundImage: 'linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%)',
-    backgroundSize: ' 50px 50px'
+    backgroundSize: '50px 50px'
   },
   houndstooth: {
     background: 'linear-gradient(-45deg, white 25%, transparent 25%, transparent 75%, black 75%, black) 0 0, linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, white 75%, white) 1em 1em, linear-gradient(45deg, black 17%, transparent 17%, transparent 25%, black 25%, black 36%, transparent 36%, transparent 64%, black 64%, black 75%, transparent 75%, transparent 83%, black 83%) 1em 1em',
@@ -148,10 +151,10 @@ export const cardBacks = {
     backgroundColor: '#556',
     backgroundImage: 'linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a)',
     backgroundSize: '80px 140px',
-    backgroundPosition: ' 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px'
+    backgroundPosition: '0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px'
   },
   linedPaper: {
-    backgroundColor: ' #fff',
+    backgroundColor: '#fff',
     backgroundImage: 'linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em)',
     backgroundSize: '100% 1.2em'
   },
@@ -166,28 +169,28 @@ export const cardBacks = {
     backgroundPosition: '0 0'
   },
   microbialMat: {
-    background: ' radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), #8a3',
+    background: 'radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), #8a3',
     backgroundSize: '20px 20px'
   },
   polkaDot: {
     backgroundColor: '#001',
     backgroundImage: 'radial-gradient(white 15%, transparent 16%), radial-gradient(white 15%, transparent 16%)',
-    backgroundSize: ' 60px 60px',
-    backgroundPosition: ' 0 0, 30px 30px'
+    backgroundSize: '60px 60px',
+    backgroundPosition: '0 0, 30px 30px'
   },
   pyramid: {
     background: 'linear-gradient(315deg, transparent 75%, #d45d55 0)-10px 0, linear-gradient(45deg, transparent 75%, #d45d55 0)-10px 0, linear-gradient(135deg, #a7332b 50%, transparent 0) 0 0, linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16',
-    backgroundSize: ' 20px 20px'
+    backgroundSize: '20px 20px'
   },
   rainbowBokeh: {
-    background: ' radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.3) 13%, rgba(255,255,255,0) 14%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 17%, rgba(255,255,255,.43) 19%, rgba(255,255,255,0) 20%) 0 110px, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -130px -170px, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) 130px 370px, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.2) 13%, rgba(255,255,255,0) 14%) 0 0, linear-gradient(45deg, #343702 0%, #184500 20%, #187546 30%, #006782 40%, #0b1284 50%, #760ea1 60%, #83096e 70%, #840b2a 80%, #b13e12 90%, #e27412 100%)',
+    background: 'radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.3) 13%, rgba(255,255,255,0) 14%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 17%, rgba(255,255,255,.43) 19%, rgba(255,255,255,0) 20%) 0 110px, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -130px -170px, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) 130px 370px, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.2) 13%, rgba(255,255,255,0) 14%) 0 0, linear-gradient(45deg, #343702 0%, #184500 20%, #187546 30%, #006782 40%, #0b1284 50%, #760ea1 60%, #83096e 70%, #840b2a 80%, #b13e12 90%, #e27412 100%)',
     backgroundSize: '470px 470px, 970px 970px, 410px 410px, 610px 610px, 530px 530px, 730px 730px, 100% 100%',
     backgroundColor: '#840b2a'
   },
   seigaiha: {
     backgroundColor: 'silver',
     backgroundImage: 'radial-gradient(circle at 100% 150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, white 10%, silver 11%, silver 23%, white 24%, white 30%, silver 31%, silver 43%, white 44%, white 50%, silver 51%, silver 63%, white 64%, white 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent)',
-    backgroundSize: ' 100px 50px'
+    backgroundSize: '100px 50px'
   },
   shippo: {
     backgroundColor: '#def',
@@ -196,7 +199,7 @@ export const cardBacks = {
     backgroundPosition: '0 0, 40px 40px'
   },
   stairs: {
-    background: ' linear-gradient(63deg, #999 23%, transparent 23%) 7px 0, linear-gradient(63deg, transparent 74%, #999 78%), linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%), #444',
+    background: 'linear-gradient(63deg, #999 23%, transparent 23%) 7px 0, linear-gradient(63deg, transparent 74%, #999 78%), linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%), #444',
     backgroundSize: '16px 48px'
   },
   starryNight: {
@@ -231,9 +234,9 @@ export const cardBacks = {
     backgroundSize: '100px 100px'
   },
   verticalStripes: {
-    backgroundColor: ' gray',
+    backgroundColor: 'gray',
     backgroundImage: 'linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%)',
-    backgroundSize: ' 50px 50px'
+    backgroundSize: '50px 50px'
   },
   wave: {
     background: 'linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B',
@@ -258,7 +261,10 @@ export const cardBacks = {
   zigZag: {
     background: 'linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%)',
     backgroundSize: '100px 100px',
-    backgroundColor: '#EC173A' } };
+    backgroundColor: '#EC173A'
+  },
+};
+/* eslint-enable max-len */
 // CSS Emulates these layouts:
 // http://zachwaugh.github.io/Helveticards/
 //

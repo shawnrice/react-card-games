@@ -5,6 +5,7 @@ import './App.css';
 import Deck, { deck, shuffle } from './Deck';
 
 import Card, { cardBacks } from './Card';
+// import Column from './Column.js'
 
 class App extends Component {
 
