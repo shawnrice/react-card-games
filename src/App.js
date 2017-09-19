@@ -1,3 +1,5 @@
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 import React, { Component } from 'react';
 import './App.css';
 
@@ -8,6 +10,7 @@ import Card from './Card';
 import { cardBackOptions } from './alt-backgrounds';
 import Column from './Column.js'
 
+@DragDropContext(HTML5Backend)
 class App extends Component {
 
   state = {

@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { cardBackOptions, getCardBack } from './alt-backgrounds';
+import { DragSource } from 'react-dnd';
+import { types } from './types';
 
 function playingCard(props, propName, componentName) {
   componentName = componentName || 'ANONYMOUS';
@@ -669,7 +671,13 @@ const getAbsoluteInner = ( card, glyph ) => {
 //   }
 // }
 
-@DragSource(ItemTypes.CARD, cardSource, (connect, monitor) => ({
+const cardSource = {
+  beginDrag( props ) {
+    return { card: props.card || props.suite + props.value };
+  }
+}
+
+@DragSource(types.CARD, cardSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging()
 }))
@@ -871,7 +879,7 @@ export default class Card extends PureComponent {
   render() {
     const { isDragging, connectDragSource, text } = this.props;
     return connectDragSource(
-      <div style={{ opacity: isDragging ? 0.5 : 1 }}>
+      <div style={{ opacity: isDragging ? 0.5 : 1, display: 'inline-block', cursor: 'pointer' }} >
         { this.getCardFront() }
       </div>
     );
