@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { cardBackOptions, getCardBack } from './alt-backgrounds';
 
 function playingCard(props, propName, componentName) {
   componentName = componentName || 'ANONYMOUS';
@@ -668,7 +669,10 @@ const getAbsoluteInner = ( card, glyph ) => {
 //   }
 // }
 
-
+@DragSource(ItemTypes.CARD, cardSource, (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging()
+}))
 export default class Card extends PureComponent {
   static propTypes = {
     card: playingCard,
@@ -676,7 +680,7 @@ export default class Card extends PureComponent {
     suite: suiteProp,
     value: valueProp,
     width: PropTypes.string,
-    backTheme: PropTypes.oneOf( Object.keys( cardBacks ) ),
+    backTheme: PropTypes.oneOf( cardBackOptions ),
   }
 
   static defaultProps = {
@@ -688,6 +692,10 @@ export default class Card extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { show: !! props.show }
+  }
+
+  beginDrag() {
+    return this.props.card;
   }
 
   toggle() {
@@ -776,6 +784,15 @@ export default class Card extends PureComponent {
       width: '70%',
     };
 
+    let cardBacking;
+    if ('string' === typeof this.props.backTheme) {
+      cardBacking = cardBackOptions.includes( this.props.backTheme )
+      ? getCardBack( this.props.backTheme, 'rgb(123, 99, 15)', '#abcabc' )
+      : { backgroundColor: 'gray' };
+    } else if ('object' === typeof this.props.backTheme) {
+      cardBacking = this.props.backTheme;
+    }
+
     return (
       <div style={ {
         position: 'relative',
@@ -807,9 +824,11 @@ export default class Card extends PureComponent {
           transform: 'translateZ(-1px)',
           width: '90%',
           backfaceVisibility: 'hidden',
-        }, cardBacks[ this.props.backTheme ] ) } />
+        /* }, cardBacks[ this.props.backTheme ] ) } /> */
+      }, cardBacking ) } />
         <div style={{
-          backgroundColor: cardBacks[ this.props.backTheme ].backgroundColor,
+          /* backgroundColor: cardBacks[ this.props.backTheme ].backgroundColor, */
+          backgroundColor: 'rgb(123, 99, 15)',
           display: 'block',
           height: '100%',
           width: '100%',
@@ -850,6 +869,11 @@ export default class Card extends PureComponent {
   }
 
   render() {
-    return this.getCardFront();
+    const { isDragging, connectDragSource, text } = this.props;
+    return connectDragSource(
+      <div style={{ opacity: isDragging ? 0.5 : 1 }}>
+        { this.getCardFront() }
+      </div>
+    );
   }
 }

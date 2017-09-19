@@ -58,6 +58,14 @@ export const deck = [
   'C12',
   'C13' ];
 
+export function getMultipleDecks(number = 2) {
+  let decks = [];
+  for (let i = 0; i < number; i++) {
+    decks = decks.concat( deck );
+  }
+  return decks;
+}
+
 export const shuffle = ( cards, times = 1 ) => {
   if ( 1 > times ) {
     return cards;
