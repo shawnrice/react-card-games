@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import Card from './Card/DraggableCard';
+// import Card from './Card/DraggableCard';
 import { types } from './types';
 import { DropTarget } from 'react-dnd';
 

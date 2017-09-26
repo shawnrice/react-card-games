@@ -1,8 +1,9 @@
-import Deck, { getMultipleDecks, shuffle } from './Deck';
+import { getMultipleDecks, shuffle } from './Deck';
 import React, { Component } from 'react';
 
 import Card from './Card/DraggableCard';
 import Column from './Column';
+import { cardBackOptions, getCardBack } from './Card/backgrounds';
 
 export default class Spider extends Component {
   constructor(props) {

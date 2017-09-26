@@ -1,0 +1,98 @@
+.glyphCard {
+  border-radius: 5%;
+  border: 2px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font: 700 1em / 1.25 Helvetica, sans-serif;
+  perspective: 800px;
+  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: perspective(300px);
+  transition: transform 300ms ease-in-out;
+  z-index: 1000;
+  &.show {
+    transform: rotateY(-180deg);
+  }
+  .back,
+  .front {
+    backface-visibility: hidden;
+    border-radius: 5%;
+    box-sizing: border-box;
+    cursor: inherit;
+    height: 97%;
+    position: absolute;
+    width: 97%;
+    left: 1.5%;
+    top: 1.5%;
+    .inner {
+      border: 5px solid white;
+      box-sizing: border-box;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+  }
+  .front {
+    background-color: white;
+    transform: rotateY(0);
+    z-index: 900;
+    .inner {
+      background-color: #fff;
+      .upper-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: rotateX(180deg);
+      }
+      .card-face {
+        font-size: 2em;
+        display: flex;
+        justify-content: space-around;
+        align-content: space-between;
+        position: absolute;
+        width: 90%;
+        left: 5%;
+        height: 80%;
+        top: 10%;
+
+        > div {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .space {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+      }
+      .rotate {
+        transform: rotateX(180deg);
+      }
+      .compact {
+        line-height: .25;
+      }
+    }
+  }
+  .back {
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    z-index: 800;
+    .inner {
+      background-color: gray;
+      color: #abc;
+    }
+  }
+  &.red .front {
+    color: red;
+  }
+  &.black .front {
+    color: black;
+  }
+}

@@ -1,0 +1,20 @@
+@import './scss/transitions.scss';
+
+/// Generic Variables
+/////////////////////
+
+$pi: 3.14159;
+$phi: 2 * $pi;
+
+/// Colors
+/////////////////////
+$transparent-dark: rgba(0, 0, 0, 0);
+$transparent-light: rgba(255, 255, 255, 0);
+
+/// Timing
+/////////////////////
+$hover-transition: .28s;
+
+@function hover-transition($property) {
+  @return #{$property} $hover-transition $ease-in-out-quint;
+}

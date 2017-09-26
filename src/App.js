@@ -1,56 +1,58 @@
-import './App.css';
+import './App.scss';
 
-import Deck, { deck, getMultipleDecks, shuffle } from './Deck';
 import React, { Component } from 'react';
 
-
-import Column from './Column.js';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Spider from './Spider';
 import Timer from './Timer';
-import { cardBackOptions } from './Card/backgrounds';
+import GlyphCard from './Card/GlyphCard';
+import { BrowserRouter } from 'react-router-dom';
+import Link from 'react-router-dom/Link';
+import Route from 'react-router-dom/Route';
+import CardBacks from './Card/CardBacks';
 
-// {
-//   shuffle(getMultipleDecks(2), 3).map((card, index) => {
-//     //DevSkim: ignore DS148264
-//     const s = card.slice(0, 1);
-//     const v = parseInt(card.slice(1), 10);
-//     return (
-//       <Card
-//         suite={s}
-//         value={v}
-//         key={v + s + index}
-//         width="100px"
-//         show={index % 2 === 0}
-//         backTheme={this.state.cardBack}
-//       />
-//     );
-//   });
-// }
-
-// <div style={{ margin: '5rem' }}>
-//   <select onChange={event => this.setState({ ...this.state, cardBack: event.target.value })}>
-//     {cardBackOptions.map(opt => (
-//       <option key={opt} value={opt}>
-//         {opt}
-//       </option>
-//     ))}
-//   </select>
-// </div>;
+const GlyphCardContainer = () => (
+  <div
+    style={{
+      margin: '3rem auto',
+      padding: '2rem',
+      height: '600px',
+      width: '800px',
+      border: '1px solid black',
+    }}
+  >
+    <GlyphCard width={250} suite="H" value={10} />
+    <GlyphCard width={150} suite="C" value={4} />
+  </div>
+);
 
 @DragDropContext(HTML5Backend)
 class App extends Component {
-  state = {
-    cardBack: cardBackOptions[0],
-  };
-
   render() {
     return (
-      <div className="App">
-        <Timer />
-        <Spider />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <header>
+            <ul>
+              <li>
+                <Link to="glyph">Glyph Card</Link>
+              </li>
+              <li>
+                <Link to="/">Spider</Link>
+              </li>
+              <li>
+                <Link to="backs">Card Backs</Link>
+              </li>
+            </ul>
+          </header>
+          <main>
+            <Route exact path="/" component={Spider} />
+            <Route exact path="/backs" component={CardBacks} />
+            <Route exact path="/glyph" component={GlyphCardContainer} />
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }

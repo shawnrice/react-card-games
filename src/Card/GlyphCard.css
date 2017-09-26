@@ -1,0 +1,85 @@
+.card {
+  border: 1px solid black;
+  border-radius: 5%;
+  position: relative;
+  cursor: pointer;
+}
+
+.back,
+.front {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  cursor: inherit;
+  border-radius: 5%;
+}
+
+.back {
+  backface-visibility: hidden;
+}
+
+.back .inner,
+.front .inner {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  top: 5%;
+  left: 5%;
+
+}
+
+.front .inner {
+  background-color: orange;
+  color: #abc;
+}
+
+.back .inner {
+  background-color: gray;
+  color: #abc;
+}
+
+.front {
+  background-color: white;
+}
+
+.card.red .front {
+  color: red;
+}
+
+.card.black .front {
+  color: black;
+}
+
+.card {
+  /* display: block; */
+  position: relative;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+  transform: perspective(300px);
+
+}
+.card .front,
+.card .back {
+  backface-visibility: hidden;
+  transition: transform 500ms;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.card .front {
+  transform: rotateY(0);
+  z-index: 900;
+}
+.card .back {
+  transform: rotateY(-180deg);
+  z-index: 800;
+}
+.card.show .front {
+  transform: rotateY(180deg);
+}
+.card.show .back {
+  z-index: 950;
+  transform: rotateY(0deg);
+}
+

@@ -1,0 +1,78 @@
+@import './entry.scss';
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+header {
+  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 2rem 0 1rem;
+  ul {
+    margin: 0 auto;
+    position: relative;
+    width: 50%;
+  }
+  li {
+    display: inline-block;
+    height: 2rem;
+    margin-right: 1rem;
+    position: relative;
+    width: 10rem;
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      color: rgba(50, 50, 50, .75);
+      font: 600 1.25rem / 1.25rem sans-serif;
+      text-decoration: none;
+      &:visited {
+        color: rgba(50, 50, 50, .75);
+      }
+      &:hover {
+        color: rgba(50, 50, 50, .95);
+        transition: hover-transition( color);
+      }
+      &::after {
+        background: rgba(50, 50, 50, 0);
+        bottom: 0;
+        color: rgba(50, 50, 50, .95);
+        content: ' ';
+        height: .5rem;
+        left: 0;
+        position: absolute;
+        transition: hover-transition( background);
+        width: 100%;
+      }
+      &:hover::after {
+        background: rgba(50, 50, 50, .75);
+        color: rgba(50, 50, 50, .95);
+        transition: hover-transition( background );
+      }
+    }
+  }
+}

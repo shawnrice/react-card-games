@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 // export const deck = [ 'H', 'D', 'S', 'C' ].map(
 //   (s) => [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ].map((v) => s + v)
 // ).reduce( (acc, val) => acc.concat(val), [] );
@@ -80,21 +78,3 @@ export const shuffle = ( cards, times = 1 ) => {
 
   return shuffle( cards, times - 1);
 };
-
-export default class Deck extends Component {
-
-  static defaultProps = {
-    cards: deck,
-    shuffle: 3,
-  }
-
-  constructor(props) {
-    super(props);
-    this.cards = shuffle( props.cards, props.shuffle );
-  }
-
-  render() {
-    return this.props.cards
-  }
-
-}

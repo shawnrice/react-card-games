@@ -4,7 +4,7 @@ import { DragSource } from 'react-dnd';
 import { types } from '../types';
 import { playingCard, suiteProp, valueProp } from './card-prop-types';
 import PropTypes from 'prop-types';
-import { cardBackOptions, getCardBack } from './backgrounds';
+import { cardBackOptions } from './backgrounds';
 
 const cardSource = {
   beginDrag(props) {
@@ -29,7 +29,7 @@ export default class DraggableCard extends Component {
   static defaultProps = {
     show: true,
     width: '100px',
-    backTheme: 'Houndstooth',
+    backTheme: 'Moroccan',
   };
 
   beginDrag() {
@@ -37,7 +37,7 @@ export default class DraggableCard extends Component {
   }
 
   render() {
-    const { isDragging, connectDragSource, text } = this.props;
+    const { isDragging, connectDragSource } = this.props;
     return connectDragSource(
       <div style={{ opacity: isDragging ? 0.5 : 1, display: 'inline-block', cursor: 'pointer' }}>
         <Card {...this.props} />

@@ -1,11 +1,14 @@
-import React, { Component, PureComponent } from 'react';
+/**
+ * Creates a card out of Pure CSS and Unicode Glyphs
+ *
+ * Emultaes the layout from http://zachwaugh.github.io/Helveticards/
+ */
+
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { cardBackOptions, getCardBack } from './backgrounds';
 import { playingCard, suiteProp, valueProp } from './card-prop-types';
 
-/* eslint-enable max-len */
-// CSS Emulates these layouts:
-// http://zachwaugh.github.io/Helveticards/
 
 const glyphs = ['♣', '♦', '♠', '♥'];
 const rotate = reverse => `rotate(${reverse ? 180 : 0}deg)`;
@@ -110,13 +113,7 @@ const getAbsoluteInner = (card, glyph) => {
 
     case 10:
       return (
-        <div
-          style={{
-            // display: 'flex',
-            // flexDirection: 'columns',
-            // alignItems: 'stretch',
-          }}
-        >
+        <div>
           {fiveUp(glyph, false, true)}
           {fiveUp(glyph, true, true)}
         </div>
@@ -125,19 +122,6 @@ const getAbsoluteInner = (card, glyph) => {
       return oneUp(glyph);
   }
 };
-
-// const getFlexInner = ( card, glyph ) => {
-//   switch ( card ) {
-//     case 'A':
-//     case 'J':
-//     case 'Q':
-//     case 'K':
-//       return ( <div>{ card }</div>);
-//     default:
-//       const arr = new Array( card );
-//       return arr.fill( <div>{ glyph }</div> );
-//   }
-// }
 
 export default class Card extends PureComponent {
   static propTypes = {
@@ -152,7 +136,7 @@ export default class Card extends PureComponent {
   static defaultProps = {
     show: true,
     width: '100px',
-    backTheme: 'Houndstooth',
+    backTheme: 'Topography',
   };
 
   constructor(props) {
@@ -165,7 +149,7 @@ export default class Card extends PureComponent {
   }
 
   render() {
-    const { suite, value, show, width } = this.props;
+    const { suite, value, width } = this.props;
     let glyph;
     let color;
     if ('C' === suite) {
@@ -264,7 +248,6 @@ export default class Card extends PureComponent {
           transformStyle: 'preserve-3d',
           transition: 'transform 300ms ease-in-out',
           perspective: '800px',
-          position: 'relative',
         }}
         onClick={() => this.toggle()}
       >
@@ -273,12 +256,12 @@ export default class Card extends PureComponent {
           style={Object.assign(
             {
               display: 'block',
-              height: '90%',
+              height: `calc(100% - ${ parseInt(width, 10)/10 }px)`,
               position: 'absolute',
               borderRadius: '5%',
-              border: '5px solid white',
+              border: `${ parseInt(width, 10) / 20 }px solid white`,
               transform: 'translateZ(-1px)',
-              width: '90%',
+              width: `calc(100% - ${ parseInt(width, 10)/10 }px)`,
               backfaceVisibility: 'hidden',
               backgroundSize: '100%',
             },
