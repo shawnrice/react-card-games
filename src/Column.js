@@ -7,12 +7,15 @@ import { DropTarget } from 'react-dnd';
 const dropTarget = {
   canDrop(props, monitor) {
     const item = monitor.getItem();
-    if (parseInt(item.card.slice(1), 10) === props.cards[props.cards.length - 1].props.value - 1) {
+    if (
+      parseInt(item.value) ===
+      props.cards[props.cards.length - 1].props.children.props.value - 1
+    ) {
       console.log('Can drop on me');
     }
-      return (
-        parseInt(item.card.slice(1), 10) === props.cards[props.cards.length - 1].props.value - 1
-      );
+    return (
+      parseInt(item.value) === props.cards[props.cards.length - 1].props.children.props.value - 1
+    );
   },
 
   hover(props, monitor, component) {
@@ -29,7 +32,7 @@ const dropTarget = {
 @DropTarget(types.CARD, dropTarget, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),
-  isOverCurrent: monitor.isOver({ shallow: true }),
+  isOverCurrent: monitor.isOver({ shallow: false }),
   canDrop: monitor.canDrop(),
   itemType: monitor.getItemType(),
 }))
@@ -66,10 +69,11 @@ export default class Column extends PureComponent {
       <div
         style={{
           position: 'absolute',
-          transform: `translateX( ${120 * offset}px )`,
-          width: '110px',
+          transform: `translateX( ${105 * offset}% )`,
+          width: '9%',
           border: this.props.canDrop ? `2px solid green` : `2px solid red`,
           height: '100%',
+          zIndex: this.props.canDrop ? 1000 : 1,
         }}
       >
         {cards.map((value, index) => (

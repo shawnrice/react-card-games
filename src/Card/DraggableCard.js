@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Card from './Card';
 import { DragSource } from 'react-dnd';
 import { types } from '../types';
-import { playingCard, suiteProp, valueProp } from './card-prop-types';
 import PropTypes from 'prop-types';
-import { cardBackOptions } from './backgrounds';
 
 const cardSource = {
   beginDrag(props) {
-    return { card: props.card || props.suite + props.value };
+    // Requires a standard "card" interface. This is quite breakable.
+    return {
+      suite: props.children.props.suite,
+      value: props.children.props.value,
+    };
   },
 };
 
@@ -18,18 +19,7 @@ const cardSource = {
 }))
 export default class DraggableCard extends Component {
   static propTypes = {
-    card: playingCard,
-    show: PropTypes.bool,
-    suite: suiteProp,
-    value: valueProp,
-    width: PropTypes.string,
-    backTheme: PropTypes.oneOf(cardBackOptions),
-  };
-
-  static defaultProps = {
-    show: true,
-    width: '100px',
-    backTheme: 'Moroccan',
+    children: PropTypes.element.isRequired,
   };
 
   beginDrag() {
@@ -39,8 +29,8 @@ export default class DraggableCard extends Component {
   render() {
     const { isDragging, connectDragSource } = this.props;
     return connectDragSource(
-      <div style={{ opacity: isDragging ? 0.5 : 1, display: 'inline-block', cursor: 'pointer' }}>
-        <Card {...this.props} />
+      <div style={{ opacity: isDragging ? 0.95 : 1, display: 'inline-block', cursor: 'pointer' }}>
+        { this.props.children }
       </div>
     );
   }
