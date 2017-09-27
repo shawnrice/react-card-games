@@ -13,13 +13,13 @@ export default class CardBacks extends Component {
           need tweaking. Also, some pretty awesome ones might need to go because they're huge. The
           last ones might be getting a bit messed up in the transformation.
         </p>
-        <p>
+        <div>
           <ul style={{ textAlign: 'left', margin: '0', width: '20rem' }}>
             <li><strong>Credits</strong></li>
             <li>http://www.heropatterns.com/</li>
             <li>http://lea.verou.me/css3patterns/</li>
           </ul>
-        </p>
+        </div>
         <div
           style={{
             display: 'flex',

@@ -1,51 +1,40 @@
+// This copies the code that Facebook wrote but didn't export for
+import { ANONYMOUS, createChainableTypeChecker, PropTypeError } from '../prop-types/factory';
+
 const suites = ['H', 'D', 'S', 'C'];
 const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 export function playingCard(props, propName, componentName) {
-  componentName = componentName || 'ANONYMOUS';
-
-  if (props[propName]) {
-    let value = props[propName];
-    if (typeof value === 'string') {
-      return suites.includes(value.slice(0, 1)) &&
-      values.includes(parseInt(value.slice(1), 10))
-        ? null
-        : new Error(propName + ' in ' + componentName + ' is not a valid card type');
-    }
-  }
-
-  // assume all ok
+  componentName = componentName || ANONYMOUS;
+  console.warn(`playinCard as a prop-type is deprecated. Use check using suite and value separately`);
   return null;
 }
 
-export function suiteProp(props, propName, componentName) {
-  componentName = componentName || 'ANONYMOUS';
+function suitePropCheck(props, propName, componentName) {
   if (props[propName]) {
-    let value = props[propName];
-    if (typeof value === 'string') {
-      return suites.includes(value)
-        ? null
-        : new Error(
-            propName + ' in ' + componentName + " should be in the array [ 'H', 'D', 'S', 'C' ] "
-          );
+    componentName = componentName || ANONYMOUS;
+    const msg = `${propName} in ${componentName} should be in the array [ 'H', 'D', 'S', 'C' ]`;
+    const value = props[propName];
+    if (typeof value !== 'string') {
+      return new PropTypeError(msg);
     }
+    return suites.includes(value) ? null : new PropTypeError(msg);
   }
-
-  // assume all ok
   return null;
 }
 
-export function valueProp(props, propName, componentName) {
-  componentName = componentName || 'ANONYMOUS';
+function valuePropCheck(props, propName, componentName) {
+  componentName = componentName || ANONYMOUS;
+  const msg = `${propName} in ${componentName} should be in an INT from 1 to 13`;
   if (props[propName]) {
-    let value = props[propName];
-    if (typeof value === 'string') {
-      return values.includes(value)
-        ? null
-        : new Error(propName + ' in ' + componentName + ' should be in an INT from 1 to 13');
+    const value = props[propName];
+    if (typeof value !== 'number') {
+      return new PropTypeError(msg);
     }
+    return values.includes(value) ? null : new PropTypeError(msg);
   }
-
-  // assume all ok
   return null;
 }
+
+export const suiteProp = createChainableTypeChecker(suitePropCheck);
+export const valueProp = createChainableTypeChecker(valuePropCheck);

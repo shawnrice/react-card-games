@@ -11,21 +11,46 @@ import { BrowserRouter } from 'react-router-dom';
 import Link from 'react-router-dom/Link';
 import Route from 'react-router-dom/Route';
 import CardBacks from './Card/CardBacks';
+import { deck } from './Deck';
+import Card from './Card/Card';
+
+function randomCard() {
+  return Math.floor(Math.random() * 13) + 1;
+}
+
+function randomSuite() {
+  const suites = ['H', 'C', 'D', 'S'];
+  return suites[Math.floor(Math.random() * 4)];
+}
 
 const GlyphCardContainer = () => (
   <div
     style={{
       margin: '3rem auto',
       padding: '2rem',
-      height: '600px',
-      width: '800px',
       border: '1px solid black',
     }}
   >
-    <GlyphCard width={250} suite="H" value={10} />
-    <GlyphCard width={150} suite="C" value={4} />
+    <GlyphCard width={150} suite="C" value={randomCard()} />
+    <GlyphCard width={100} suite="C" value={randomCard()} />
+    <GlyphCard width={350} suite="D" value={randomCard()} />
+    <GlyphCard width={150} suite="C" value={randomCard()} />
+    <GlyphCard width={50} suite="C" value={randomCard()} />
+    <GlyphCard width={150} suite="S" value={randomCard()} />
+    <GlyphCard width={150} suite="C" value={randomCard()} />
+    <GlyphCard width={550} suite="S" value={randomCard()} />
+    <GlyphCard width={150} suite="C" value={randomCard()} />
+    <GlyphCard width={88} suite="H" value={randomCard()} />
+    <GlyphCard width={250} suite="D" value={randomCard()} />
+    <GlyphCard width={50} suite="C" value={randomCard()} />
+    <GlyphCard width={300} suite="H" value={randomCard()} theme="tartan" />
   </div>
 );
+
+const OriginalCards = () =>
+  deck.map(card => (
+    <Card key={card} value={parseInt(card.slice(1), 10)} suite={card.slice(0, 1)} width="100px" />
+  ));
 
 @DragDropContext(HTML5Backend)
 class App extends Component {
@@ -44,12 +69,16 @@ class App extends Component {
               <li>
                 <Link to="backs">Card Backs</Link>
               </li>
+              <li>
+                <Link to="original">Original Cards</Link>
+              </li>
             </ul>
           </header>
           <main>
             <Route exact path="/" component={Spider} />
             <Route exact path="/backs" component={CardBacks} />
             <Route exact path="/glyph" component={GlyphCardContainer} />
+            <Route exact path="/original" component={OriginalCards} />
           </main>
         </div>
       </BrowserRouter>
