@@ -13,9 +13,11 @@
   user-select: none;
   z-index: 1000;
   transform: rotateY(-180deg);
+
   &.show {
     transform: rotateY(0deg);
   }
+
   .back,
   .front {
     backface-visibility: hidden;
@@ -27,6 +29,7 @@
     width: 97%;
     left: 1.5%;
     top: 1.5%;
+
     .inner {
       border: 5px solid white;
       box-sizing: border-box;
@@ -35,6 +38,7 @@
       width: 100%;
     }
   }
+
   .front {
     background-color: white;
     transform: rotateY(0);
@@ -76,7 +80,7 @@
         transform: rotateX(180deg);
       }
       .compact {
-        line-height: .25;
+        line-height: 0.25;
       }
     }
   }
