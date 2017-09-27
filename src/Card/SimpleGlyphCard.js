@@ -65,6 +65,7 @@ export default class SimpleGlyphCard extends Component {
 
   handleOnClick() {
     this.setState(prevState => ({
+      ...prevState,
       show: !prevState.show,
     }));
   }

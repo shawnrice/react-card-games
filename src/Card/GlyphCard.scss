@@ -12,8 +12,9 @@
   transition: transform 300ms ease-in-out;
   user-select: none;
   z-index: 1000;
+  transform: rotateY(-180deg);
   &.show {
-    transform: rotateY(-180deg);
+    transform: rotateY(0deg);
   }
   .back,
   .front {
@@ -62,8 +63,7 @@
         left: 5%;
         height: 80%;
         top: 10%;
-
-        > div {
+        >div {
           width: 100%;
         }
       }
@@ -82,7 +82,7 @@
   }
   .back {
     backface-visibility: hidden;
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
     z-index: 800;
     .inner {
       background-color: steelblue;
