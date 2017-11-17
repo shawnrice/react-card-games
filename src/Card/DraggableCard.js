@@ -7,8 +7,8 @@ const cardSource = {
   beginDrag(props) {
     // Requires a standard "card" interface. This is quite breakable.
     return {
-      suite: props.children.props.suite,
-      value: props.children.props.value,
+      suite: props.suite,
+      value: props.value,
     };
   },
 };
@@ -20,6 +20,7 @@ const cardSource = {
 export default class DraggableCard extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
+    CardComponent: PropTypes.func.isRequired,
   };
 
   beginDrag() {
@@ -27,10 +28,10 @@ export default class DraggableCard extends Component {
   }
 
   render() {
-    const { isDragging, connectDragSource } = this.props;
+    const { isDragging, connectDragSource, CardComponent, ...rest } = this.props;
     return connectDragSource(
       <div style={{ opacity: isDragging ? 0.95 : 1, display: 'inline-block', cursor: 'pointer' }}>
-        { this.props.children }
+        <CardComponent { ...rest } />
       </div>
     );
   }

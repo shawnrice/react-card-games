@@ -19,16 +19,14 @@ export default class Spider extends Component {
     }
     for (let i = 0; i < 54; i++) {
       const card = (
-        <DraggableCard>
-          <Card
-            width={ 150 }
-            suite={deck[i].slice(0, 1)}
-            value={parseInt(deck[i].slice(1), 10)}
-            show={false}
-          />
-        </DraggableCard>
+        <DraggableCard
+          CardComponent={ Card }
+          width={ 150 }
+          suite={deck[i].slice(0, 1)}
+          value={parseInt(deck[i].slice(1), 10)}
+          show={false}
+        />
       );
-      console.log(card);
       columns[i % 10].push(card);
     }
     this.columns = columns;

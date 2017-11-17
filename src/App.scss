@@ -35,7 +35,6 @@ header {
   ul {
     margin: 0 auto;
     position: relative;
-    width: 50%;
   }
   li {
     display: inline-block;
@@ -48,7 +47,7 @@ header {
     }
     a {
       color: rgba(50, 50, 50, .75);
-      font: 600 1.25rem / 1.25rem sans-serif;
+      font: 600 1rem / 1.25rem sans-serif;
       text-decoration: none;
       &:visited {
         color: rgba(50, 50, 50, .75);

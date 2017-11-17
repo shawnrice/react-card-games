@@ -9,12 +9,12 @@ const dropTarget = {
     const item = monitor.getItem();
     if (
       parseInt(item.value) ===
-      props.cards[props.cards.length - 1].props.children.props.value - 1
+      props.cards[props.cards.length - 1].props.value - 1
     ) {
       console.log('Can drop on me');
     }
     return (
-      parseInt(item.value) === props.cards[props.cards.length - 1].props.children.props.value - 1
+      parseInt(item.value) === props.cards[props.cards.length - 1].props.value - 1
     );
   },
 
@@ -25,6 +25,7 @@ const dropTarget = {
 
   drop(props, monitor, component) {
     console.log('is dropping');
+    console.log( 'Did drop', monitor.didDrop() );
     return true;
   },
 };
@@ -61,7 +62,6 @@ export default class Column extends PureComponent {
 
   render() {
     const { cards, offset } = this.props;
-    console.log(cards.length, 'cards in this column');
     if (this.props.isOver) {
       console.log('Over me!');
     }

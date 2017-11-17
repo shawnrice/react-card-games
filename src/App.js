@@ -32,19 +32,19 @@ const GlyphCardContainer = () => (
       border: '1px solid black',
     }}
   >
-    <GlyphCard width={150} suite="C" value={randomCard()} />
-    <GlyphCard width={100} suite="C" value={randomCard()} />
-    <GlyphCard width={350} suite="D" value={randomCard()} />
-    <GlyphCard width={150} suite="C" value={randomCard()} />
-    <GlyphCard width={50} suite="C" value={randomCard()} />
-    <GlyphCard width={150} suite="S" value={randomCard()} />
-    <GlyphCard width={150} suite="C" value={randomCard()} />
-    <GlyphCard width={550} suite="S" value={randomCard()} />
-    <GlyphCard width={150} suite="C" value={randomCard()} />
-    <GlyphCard width={88} suite="H" value={randomCard()} />
-    <GlyphCard width={250} suite="D" value={randomCard()} />
-    <GlyphCard width={50} suite="C" value={randomCard()} />
-    <GlyphCard width={300} suite="H" value={randomCard()} theme="tartan" />
+    <GlyphCard width={150} show suite="C" value={randomCard()} />
+    <GlyphCard width={100} show suite="C" value={randomCard()} />
+    <GlyphCard width={350} show suite="D" value={randomCard()} />
+    <GlyphCard width={150} show suite="C" value={randomCard()} />
+    <GlyphCard width={50} show suite="C" value={randomCard()} />
+    <GlyphCard width={150} show suite="S" value={randomCard()} />
+    <GlyphCard width={150}  suite="C" value={randomCard()} />
+    <GlyphCard width={550} show suite="S" value={randomCard()} />
+    <GlyphCard width={150} show suite="C" value={randomCard()} />
+    <GlyphCard width={88}  suite="H" value={randomCard()} />
+    <GlyphCard width={250} show suite="D" value={randomCard()} />
+    <GlyphCard width={50} show suite="C" value={randomCard()} />
+    <GlyphCard width={300}  suite="H" value={randomCard()} theme="tartan" />
   </div>
 );
 
@@ -56,16 +56,16 @@ const SimpleGlyphCardContainer = () => (
       border: '1px solid black',
     }}
   >
-    <SimpleGlyphCard width={150} suite="C" value={randomCard()} />
-    <SimpleGlyphCard width={100} suite="C" value={randomCard()} />
-    <SimpleGlyphCard width={350} suite="D" value={randomCard()} />
-    <SimpleGlyphCard width={150} suite="C" value={randomCard()} />
-    <SimpleGlyphCard width={50} suite="C" value={randomCard()} />
-    <SimpleGlyphCard width={150} suite="S" value={randomCard()} />
-    <SimpleGlyphCard width={150} suite="C" value={randomCard()} />
-    <SimpleGlyphCard width={550} suite="S" value={randomCard()} />
-    <SimpleGlyphCard width={150} suite="C" value={randomCard()} />
-    <SimpleGlyphCard width={88} suite="H" value={randomCard()} />
+    <SimpleGlyphCard width={150} show suite="C" value={randomCard()} />
+    <SimpleGlyphCard width={100} show suite="C" value={randomCard()} />
+    <SimpleGlyphCard width={350} show suite="D" value={randomCard()} />
+    <SimpleGlyphCard width={150} show suite="C" value={randomCard()} />
+    <SimpleGlyphCard width={50} show suite="C" value={randomCard()} />
+    <SimpleGlyphCard width={150} show suite="S" value={randomCard()} />
+    <SimpleGlyphCard width={150} show suite="C" value={randomCard()} />
+    <SimpleGlyphCard width={550} show suite="S" value={randomCard()} />
+    <SimpleGlyphCard width={150} show suite="C" value={randomCard()} />
+    <SimpleGlyphCard width={88} show suite="H" value={randomCard()} />
     <SimpleGlyphCard width={250} suite="D" value={randomCard()} />
     <SimpleGlyphCard width={50} suite="C" value={randomCard()} />
     <SimpleGlyphCard width={300} suite="H" value={randomCard()} theme="tartan" />
